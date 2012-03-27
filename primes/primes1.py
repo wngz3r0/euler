@@ -1,16 +1,18 @@
 import test
+primes = []
 def is_prime(n):
-    for i in range(2, n):
+    global primes
+    for i in primes:
         if n % i == 0:
             return False
     return True
 
 def get_primes(n):
-    lst = []
+    global primes
     for i in range(2, n):
         if is_prime(i):
-            lst.append(i)
-    return lst
+            primes.append(i)
+    return primes
 
 lst = get_primes(test.max_prime)
 # test.check_primes(lst)
