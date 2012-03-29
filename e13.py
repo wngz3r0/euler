@@ -1,4 +1,4 @@
-f = open ('e13a.txt')
+f = open ('e13.txt')
 lines = f.readlines()
 lenLine = len(lines[0]) - 1 # Don't count the newline
 columns = [0 for i in range(lenLine)]
@@ -22,8 +22,9 @@ if carry > 0:
 summation.reverse()
 answer = ''
 for i, val in enumerate(summation):
-    answer += str(val)
-    i += 1
+    strVal = str(val)
+    answer += strVal
+    i += len(strVal) # This coud be greater than 1 for the carry number
     if i >= 10:
         break
 
