@@ -4,10 +4,15 @@ with open ('e13.txt') as f:
 lenLine = len(lines[0].strip()) 
 columns = [0 for i in range(lenLine)]
 
+# First, convert every character in the line to a number
+# Then add that to the previous sum, on a per-character basis
 for line in lines:
     nums = map(int, line.strip())
-    columns = [sum(pair) for pair in zip(nums, columns)]
+    columns = list(map(sum, zip(nums, columns)))
 
+# Now, columns is a list where each entry is the ith column.
+# The sum is now (kn * 10^n) + (k(n-1) * 10 ^ (n-1)) + .... + k1
+# Sum this up from the lowest bit, and carry the sum to the next column
 columns.reverse()
 carry = 0
 summation = []
@@ -17,6 +22,7 @@ for col in columns:
     carry = col // 10
     summation.append(remainder)
 
+# After the final column, there could still be left-over carry.
 if carry > 0:
     summation.append(carry)
 
