@@ -1,9 +1,8 @@
 with open ('e13.txt') as f:
     lines = f.readlines()
 
-lenLine = len(lines[0]) - 1 # Don't count the newline
+lenLine = len(lines[0].strip()) 
 columns = [0 for i in range(lenLine)]
-
 
 for line in lines:
     nums = map(int, line.strip())
