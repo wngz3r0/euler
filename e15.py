@@ -2,7 +2,7 @@ def arr_print(rows):
     print ("\n".join(["\t".join(map(str, row)) for row in rows]))
     return 0
 
-n = 5
+n = 21
 rows = [[0] * n for _ in range(n)]
 # This was my incorrect first attempt: rows = [[[0] * n] * n]. 
 # The outer lists are just a reference to the same inner list!
@@ -17,6 +17,6 @@ for i in range(len(rows)):
         # Rows is initialized to 0, and therefore this defaults to 0
         rows[i][j] = max(1, rows[i - 1][j] + rows[i][j - 1])
 
-arr_print(rows)
+#arr_print(rows)
 print (rows[-1][-1])
 
